@@ -10,7 +10,15 @@ func _ready():
 func InitTree():
 	var root = _tree.create_item()
 	_tree.set_hide_root(true)
+	AddOneSimpleNode(root)
 	CreateRandomNodes(root,  3)
+
+func AddOneSimpleNode(parentNode):
+	var node = _tree.create_item(parentNode)
+	node.set_text(0, "First simple node")
+	
+	var subnode = _tree.create_item(node)
+	subnode.set_text(0, "Child node of first node")
 
 func CreateRandomNodes(parentNode, nodeCount):		
 	for i in nodeCount:
